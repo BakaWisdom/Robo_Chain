@@ -5,7 +5,7 @@ using UnityEngine;
 public class RobotMovementController : MonoBehaviour
 {
     public MovementDirection direction;
-    private Vector3 vectorDirection;
+    public Vector3 vectorDirection;
     // Start is called before the first frame update
     public float moveSpeed = 1f;
     public float followSpeed = 1f;
@@ -13,13 +13,17 @@ public class RobotMovementController : MonoBehaviour
     public Transform movePoint;
     public LayerMask whatStopsMovement;
 
+    public TetherRopeController tetherController;
+
     private bool isMoving = false;
 
     private bool shouldMove = false;
+
     // Start is called before the first frame update
     void Start()
     {
         movePoint.parent = null;
+
         if (direction == MovementDirection.Up)
         {
             vectorDirection = new Vector3(0f, 1f);
@@ -35,6 +39,14 @@ public class RobotMovementController : MonoBehaviour
         else
         {
             vectorDirection = new Vector3(-1f, 0f);
+        }
+    }
+
+    public void UpdateVector()
+    {
+        foreach(RobotMovementController roboMovement in tetherController.tetheredRobots)
+        {
+            vectorDirection += roboMovement.vectorDirection;
         }
     }
 
