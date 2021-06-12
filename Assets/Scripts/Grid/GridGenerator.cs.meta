@@ -3,7 +3,15 @@ guid: d81e438fc28c81340ad600ad56cdad96
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - emptyPrefab: {fileID: 4338150222804871292, guid: 72aa171bec953f346b1592bce0929199, type: 3}
+  - wallPrefab: {fileID: 5394861493159125319, guid: 8380031c6b311784bb2857aa4d369c57, type: 3}
+  - robotPrefab: {fileID: 6725035231292223933, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
+  - endpointPrefab: {fileID: 8899798469084141550, guid: 9c6c730f16ecebd4aac53cc8e5c18b66, type: 3}
+  - conveyorSpeed1Prefab: {fileID: 7337141367568295834, guid: 2411c9abd75f87d458b2e05ce3e23d82, type: 3}
+  - conveyorSpeed2Prefab: {fileID: 9191525375966480461, guid: 8e3733e66bf126f418f5464f1077ca47, type: 3}
+  - spikePrefab: {fileID: 6446834487069410543, guid: 53686c643bb9fad4ea077f253a0df369, type: 3}
+  - levelSprite: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
