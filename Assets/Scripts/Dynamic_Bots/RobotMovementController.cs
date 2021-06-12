@@ -28,7 +28,7 @@ public class RobotMovementController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        movePoint.parent = null;
+        movePoint.parent = GameObject.Find("MovePoints").transform;
         initialDirection = new Vector3();
         if (directionY == MovementDirection.Up)
         {
