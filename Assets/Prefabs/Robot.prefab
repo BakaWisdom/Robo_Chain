@@ -177,7 +177,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Positions:
   - {x: 0.5, y: 0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
@@ -265,7 +265,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 0
-  moveSpeed: 5
+  moveSpeed: 1
+  followSpeed: 1
   movePoint: {fileID: 1793764474}
   whatStopsMovement:
     serializedVersion: 2

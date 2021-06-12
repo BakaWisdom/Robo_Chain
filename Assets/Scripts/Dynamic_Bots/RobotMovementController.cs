@@ -5,8 +5,9 @@ using UnityEngine;
 public class RobotMovementController : MonoBehaviour
 {
     public MovementDirection direction;
+    private Vector3 vectorDirection;
     // Start is called before the first frame update
-    public float moveSpeed = 5f;
+    public float moveSpeed = 1f;
     public float followSpeed = 1f;
 
     public Transform movePoint;
@@ -19,6 +20,22 @@ public class RobotMovementController : MonoBehaviour
     void Start()
     {
         movePoint.parent = null;
+        if (direction == MovementDirection.Up)
+        {
+            vectorDirection = new Vector3(0f, 1f);
+        } 
+        else if (direction == MovementDirection.Down)
+        {
+            vectorDirection = new Vector3(0f, -1f);
+        }
+        else if (direction == MovementDirection.Right)
+        {
+            vectorDirection = new Vector3(1f, 0f);
+        }
+        else
+        {
+            vectorDirection = new Vector3(-1f, 0f);
+        }
     }
 
     public void ActivateMovement()
@@ -34,25 +51,16 @@ public class RobotMovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (shouldMove && !isMoving)
+        if (shouldMove)
         {
             transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
-            if (Vector3.Distance(transform.position, movePoint.position) <= .05f)
+            if (Vector3.Distance(transform.position, movePoint.position) <= .05f && !isMoving)
             {
-                if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
+                isMoving = true;
+                if (!Physics2D.OverlapCircle(movePoint.position + vectorDirection, .2f, whatStopsMovement))
                 {
-                    if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), .2f, whatStopsMovement))
-                    {
-                        movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
-                    }
-                }
-                else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f)
-                {
-                    if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), .2f, whatStopsMovement))
-                    {
-                        movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
-                    }
+                    movePoint.position += new Vector3(vectorDirection.x, vectorDirection.y, 0f);
                 }
             }
         }

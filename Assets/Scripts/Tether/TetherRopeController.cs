@@ -5,6 +5,7 @@ using UnityEngine;
 [ExecuteInEditMode()]
 public class TetherRopeController : MonoBehaviour
 {
+    public Material spriteMaterial;
     public LayerMask layerMask;
     public float tetherWidth = .2f;
     public Dictionary<string, List<Transform>> pointsDictionary = new Dictionary<string, List<Transform>>();
@@ -42,7 +43,7 @@ public class TetherRopeController : MonoBehaviour
                         linerenderers.TryGetValue(key, out lineRenderer);
                         if (lineRenderer)
                         {
-                            lineRenderer.SetPosition(i, points[i].position);
+                            lineRenderer.SetPosition(i, new Vector3(points[i].position.x, points[i].position.y, -2f));
                         }
                     }
 
@@ -106,7 +107,8 @@ public class TetherRopeController : MonoBehaviour
         LineRenderer lineRenderer = lineToSpawn.AddComponent<LineRenderer>();
         lineRenderer.startColor = Color.red;
         lineRenderer.startWidth = tetherWidth;
-
+        lineRenderer.sortingOrder = 2;
+        lineRenderer.material = spriteMaterial;
         linerenderers.Add("line1" + pointsDictionary.Keys.Count, lineRenderer);
         pointsDictionary.Add("line1" + pointsDictionary.Keys.Count, newPoints);
     }
