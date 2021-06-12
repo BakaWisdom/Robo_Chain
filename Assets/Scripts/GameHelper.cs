@@ -20,7 +20,6 @@ public class GameHelper : MonoBehaviour
 
     public void StartLevel()
     {
-        Debug.Log("HELLO");
         ActivateLevel.Raise();
     }
 
