@@ -25,6 +25,8 @@ public class RobotMovementController : MonoBehaviour
 
     private bool shouldMove = false;
 
+    public Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,7 +74,6 @@ public class RobotMovementController : MonoBehaviour
     {
         if (shouldMove)
         {
-            
             transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
             if (Vector3.Distance(transform.position, movePoint.position) <= .05f)
@@ -91,6 +92,8 @@ public class RobotMovementController : MonoBehaviour
                         if (!Physics2D.OverlapCircle(movePoint.position + (new Vector3(vectorDirection.x, 0)), .2f, whatStopsMovement))
                         {
                             movePoint.position += new Vector3(vectorDirection.x, 0f, 0f);
+                            anim.SetFloat("AnimMoveX", vectorDirection.x);
+                            anim.SetFloat("AnimMoveY", 0f);
                         }
                     }
                     else
@@ -98,6 +101,8 @@ public class RobotMovementController : MonoBehaviour
                         if (!Physics2D.OverlapCircle(movePoint.position + (new Vector3(0, vectorDirection.y)), .2f, whatStopsMovement))
                         {
                             movePoint.position += new Vector3(0f, vectorDirection.y, 0f);
+                            anim.SetFloat("AnimMoveX", 0f);
+                            anim.SetFloat("AnimMoveY", vectorDirection.y);
                         }
                     }
                 }
@@ -112,6 +117,8 @@ public class RobotMovementController : MonoBehaviour
                             if (!Physics2D.OverlapCircle(movePoint.position + (new Vector3(0, vectorDirection.y)), .2f, whatStopsMovement))
                             {
                                 movePoint.position += new Vector3(0f, vectorDirection.y, 0f);
+                                anim.SetFloat("AnimMoveX", 0f);
+                                anim.SetFloat("AnimMoveY", vectorDirection.y);
                             }
                         }
                         else
@@ -119,6 +126,8 @@ public class RobotMovementController : MonoBehaviour
                             if (!Physics2D.OverlapCircle(movePoint.position + (new Vector3(vectorDirection.x, 0)), .2f, whatStopsMovement))
                             {
                                 movePoint.position += new Vector3(vectorDirection.x, 0f, 0f);
+                                anim.SetFloat("AnimMoveX", vectorDirection.x);
+                                anim.SetFloat("AnimMoveY", 0f);
                             }
                         }
                     }
