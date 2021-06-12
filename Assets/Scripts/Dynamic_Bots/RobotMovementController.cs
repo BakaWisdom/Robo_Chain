@@ -13,16 +13,15 @@ public class RobotMovementController : MonoBehaviour
     public Transform movePoint;
     public LayerMask whatStopsMovement;
 
+    public TetherRopeController tetherController;
+
     private bool isMoving = false;
 
     private bool shouldMove = false;
 
-    private List<RobotMovementController> tetheredRobots;
-
     // Start is called before the first frame update
     void Start()
     {
-        tetheredRobots = new List<RobotMovementController>();
         movePoint.parent = null;
 
         if (direction == MovementDirection.Up)
@@ -43,19 +42,9 @@ public class RobotMovementController : MonoBehaviour
         }
     }
 
-    public void AddTetheredRobot()
-    {
-
-    }
-
-    public void RemoveTetheredRobot()
-    {
-
-    }
-
     public void UpdateVector()
     {
-        foreach(RobotMovementController roboMovement in tetheredRobots)
+        foreach(RobotMovementController roboMovement in tetherController.tetheredRobots)
         {
             vectorDirection += roboMovement.vectorDirection;
         }

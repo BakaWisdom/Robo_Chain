@@ -16,9 +16,13 @@ public class TetherRopeController : MonoBehaviour
     public LineRenderer drawingLine;
 
     private bool isDrawing = false;
+
+    public List<RobotMovementController> tetheredRobots;
+    public GameEvent lineCreated;
     // Start is called before the first frame update
     void Start()
     {
+        tetheredRobots = new List<RobotMovementController>();
         drawingLine = GetComponent<LineRenderer>();
         drawingLine.SetPosition(0, transform.position);
         drawingLine.SetPosition(1, transform.position);
@@ -111,6 +115,8 @@ public class TetherRopeController : MonoBehaviour
         lineRenderer.material = spriteMaterial;
         linerenderers.Add("line1" + pointsDictionary.Keys.Count, lineRenderer);
         pointsDictionary.Add("line1" + pointsDictionary.Keys.Count, newPoints);
+        tetheredRobots.Add(target.gameObject.GetComponent<RobotMovementController>());
+        lineCreated.Raise();
     }
 
     public void StartDrawing()
