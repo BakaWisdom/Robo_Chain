@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class RobotMovementController : MonoBehaviour
 {
-    public MovementDirection direction;
+    public MovementDirection directionX;
+    public MovementDirection directionY;
+    public float distanceX = 1f;
+    public float distanceY = 1f;
+    public Vector3 initialDirection;
     public Vector3 vectorDirection;
     // Start is called before the first frame update
     public float moveSpeed = 1f;
@@ -23,30 +27,31 @@ public class RobotMovementController : MonoBehaviour
     void Start()
     {
         movePoint.parent = null;
-
-        if (direction == MovementDirection.Up)
+        initialDirection = new Vector3();
+        if (directionY == MovementDirection.Up)
         {
-            vectorDirection = new Vector3(0f, 1f);
+            initialDirection += new Vector3(0f, distanceY);
         } 
-        else if (direction == MovementDirection.Down)
+        if (directionY == MovementDirection.Down)
         {
-            vectorDirection = new Vector3(0f, -1f);
+            initialDirection += new Vector3(0f, -distanceY);
         }
-        else if (direction == MovementDirection.Right)
+        if (directionX == MovementDirection.Right)
         {
-            vectorDirection = new Vector3(1f, 0f);
+            initialDirection += new Vector3(distanceX, 0f);
         }
-        else
+        if (directionX == MovementDirection.Left)
         {
-            vectorDirection = new Vector3(-1f, 0f);
+            initialDirection += new Vector3(-distanceX, 0f);
         }
+        vectorDirection = initialDirection;
     }
 
     public void UpdateVector()
     {
         foreach(RobotMovementController roboMovement in tetherController.tetheredRobots)
         {
-            vectorDirection += roboMovement.vectorDirection;
+            vectorDirection += roboMovement.initialDirection;
         }
     }
 

@@ -67,11 +67,11 @@ public class TetherRopeController : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 10f, layerMask);
-            Debug.DrawRay(ray.origin, ray.direction * 1000, Color.green);
             if (hit)
             {
                 if(hit.transform.name != transform.name)
                 {
+                    hit.transform.gameObject.GetComponent<TetherRopeController>().CreateLine(transform);
                     CreateLine(hit.transform);
                 }
             }
@@ -116,7 +116,7 @@ public class TetherRopeController : MonoBehaviour
         linerenderers.Add("line1" + pointsDictionary.Keys.Count, lineRenderer);
         pointsDictionary.Add("line1" + pointsDictionary.Keys.Count, newPoints);
         tetheredRobots.Add(target.gameObject.GetComponent<RobotMovementController>());
-        lineCreated.Raise();
+        gameObject.GetComponent<RobotMovementController>().UpdateVector();
     }
 
     public void StartDrawing()
