@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameHelper : MonoBehaviour
 {
+    public GameEvent ActivateLevel;
+    public GameEvent StopLevel;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,16 @@ public class GameHelper : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void StartLevel()
+    {
+        Debug.Log("HELLO");
+        ActivateLevel.Raise();
+    }
+
+    public void FreezeLevel()
+    {
+        StopLevel.Raise();
     }
 }
