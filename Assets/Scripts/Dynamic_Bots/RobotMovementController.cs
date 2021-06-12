@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class RobotMovementController : MonoBehaviour
 {
-    public MovementDirection direction;
+    public MovementDirection directionX;
+    public MovementDirection directionY;
+    public float distanceX = 1f;
+    public float distanceY = 1f;
+    public Vector3 initialDirection;
     public Vector3 vectorDirection;
     // Start is called before the first frame update
     public float moveSpeed = 1f;
@@ -16,37 +20,40 @@ public class RobotMovementController : MonoBehaviour
     public TetherRopeController tetherController;
 
     private bool isMoving = false;
+    private bool isMovingXFirst = false;
+    private bool shouldMoveSecondCoordinate = false;
 
     private bool shouldMove = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        movePoint.parent = null;
-
-        if (direction == MovementDirection.Up)
+        movePoint.parent = GameObject.Find("MovePoints").transform;
+        initialDirection = new Vector3();
+        if (directionY == MovementDirection.Up)
         {
-            vectorDirection = new Vector3(0f, 1f);
+            initialDirection += new Vector3(0f, distanceY);
         } 
-        else if (direction == MovementDirection.Down)
+        if (directionY == MovementDirection.Down)
         {
-            vectorDirection = new Vector3(0f, -1f);
+            initialDirection += new Vector3(0f, -distanceY);
         }
-        else if (direction == MovementDirection.Right)
+        if (directionX == MovementDirection.Right)
         {
-            vectorDirection = new Vector3(1f, 0f);
+            initialDirection += new Vector3(distanceX, 0f);
         }
-        else
+        if (directionX == MovementDirection.Left)
         {
-            vectorDirection = new Vector3(-1f, 0f);
+            initialDirection += new Vector3(-distanceX, 0f);
         }
+        vectorDirection = initialDirection;
     }
 
     public void UpdateVector()
     {
         foreach(RobotMovementController roboMovement in tetherController.tetheredRobots)
         {
-            vectorDirection += roboMovement.vectorDirection;
+            vectorDirection += roboMovement.initialDirection;
         }
     }
 
@@ -65,14 +72,56 @@ public class RobotMovementController : MonoBehaviour
     {
         if (shouldMove)
         {
+            
             transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
-            if (Vector3.Distance(transform.position, movePoint.position) <= .05f && !isMoving)
+            if (Vector3.Distance(transform.position, movePoint.position) <= .05f)
             {
-                isMoving = true;
-                if (!Physics2D.OverlapCircle(movePoint.position + vectorDirection, .2f, whatStopsMovement))
+                if (!isMoving)
                 {
-                    movePoint.position += new Vector3(vectorDirection.x, vectorDirection.y, 0f);
+                    isMoving = true;
+                    shouldMoveSecondCoordinate = true;
+                    if (vectorDirection.x - vectorDirection.y >= 0)
+                    {
+                        isMovingXFirst = true;
+                    }
+
+                    if (isMovingXFirst)
+                    {
+                        if (!Physics2D.OverlapCircle(movePoint.position + (new Vector3(vectorDirection.x, 0)), .2f, whatStopsMovement))
+                        {
+                            movePoint.position += new Vector3(vectorDirection.x, 0f, 0f);
+                        }
+                    }
+                    else
+                    {
+                        if (!Physics2D.OverlapCircle(movePoint.position + (new Vector3(0, vectorDirection.y)), .2f, whatStopsMovement))
+                        {
+                            movePoint.position += new Vector3(0f, vectorDirection.y, 0f);
+                        }
+                    }
+                }
+                else
+                {
+                    if(shouldMoveSecondCoordinate)
+                    {
+                        shouldMoveSecondCoordinate = false;
+                        isMoving = false;
+                        if (isMovingXFirst)
+                        {
+                            if (!Physics2D.OverlapCircle(movePoint.position + (new Vector3(0, vectorDirection.y)), .2f, whatStopsMovement))
+                            {
+                                movePoint.position += new Vector3(0f, vectorDirection.y, 0f);
+                            }
+                        }
+                        else
+                        {
+                            if (!Physics2D.OverlapCircle(movePoint.position + (new Vector3(vectorDirection.x, 0)), .2f, whatStopsMovement))
+                            {
+                                movePoint.position += new Vector3(vectorDirection.x, 0f, 0f);
+                            }
+                        }
+                    }
                 }
             }
         }

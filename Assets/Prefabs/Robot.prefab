@@ -268,7 +268,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b296f53da44734ba0dffa4c8e68d7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 0
+  directionX: 2
+  directionY: 0
+  distanceX: 1
+  distanceY: 1
+  initialDirection: {x: 0, y: 0, z: 0}
   vectorDirection: {x: 0, y: 0, z: 0}
   moveSpeed: 1
   followSpeed: 1
