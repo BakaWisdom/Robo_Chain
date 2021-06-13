@@ -2879,6 +2879,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1486254915}
     m_Modifications:
+    - target: {fileID: 1381450920, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
+      propertyPath: distanceX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1381450920, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
+      propertyPath: distanceY
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6725035231292223922, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
       propertyPath: m_Positions.Array.data[0].x
       value: 0.5
