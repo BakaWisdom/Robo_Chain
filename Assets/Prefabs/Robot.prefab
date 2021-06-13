@@ -191,7 +191,7 @@ MonoBehaviour:
   tetherWidth: 0.2
   drawingLine: {fileID: 6725035231292223922}
   tetheredRobots: []
-  lineCreated: {fileID: 0}
+  lineCreated: {fileID: 11400000, guid: 326606ad911c8404199e39273ef73bbd, type: 2}
 --- !u!120 &6725035231292223922
 LineRenderer:
   m_ObjectHideFlags: 0
