@@ -162,11 +162,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1381450920, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
       propertyPath: distanceX
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1381450920, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
       propertyPath: distanceY
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1381450920, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
       propertyPath: directionY
@@ -502,11 +502,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1381450920, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
       propertyPath: distanceX
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1381450920, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
       propertyPath: distanceY
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1381450920, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
       propertyPath: directionY
