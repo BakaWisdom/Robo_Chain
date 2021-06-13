@@ -58,7 +58,7 @@ public class RoboWinLossState : MonoBehaviour
     {
         if (collision.tag == "Cake")
         {
-            inCake = false;
+            //inCake = false;
         }
     }
 }

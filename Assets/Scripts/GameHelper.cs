@@ -54,6 +54,11 @@ public class GameHelper : MonoBehaviour
         SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void Reset()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     public void BackToMain()
     {
         SceneManager.LoadScene(0);
