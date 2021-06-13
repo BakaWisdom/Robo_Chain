@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5127888450583462817}
   m_Layer: 8
   m_Name: Line
-  m_TagString: Untagged
+  m_TagString: Tether
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

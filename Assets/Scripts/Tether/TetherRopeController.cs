@@ -84,9 +84,12 @@ public class TetherRopeController : MonoBehaviour
         }
     }
 
-    public void DeleteTether(string name)
+    public void ResetTethers()
     {
-        Debug.Log(name);
+        linerenderers = new Dictionary<string, LineRenderer>();
+        tetheredRobots = new Dictionary<string, RobotMovementController>();
+        RobotMovementController robo = gameObject.GetComponent<RobotMovementController>();
+        robo.UpdateVector();
     }
 
     private void resetDrawingLine()

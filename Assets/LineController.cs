@@ -42,18 +42,5 @@ public class LineController : MonoBehaviour
 
             fpsCounter = 0f;
         }
-
-        if(Input.GetMouseButtonDown(1))
-        {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, 100.0f))
-            {
-                if(hit.transform.name == transform.name)
-                {
-                    transform.parent.GetComponent<TetherRopeController>().DeleteTether(transform.name);
-                }
-            }
-        }
     }
 }

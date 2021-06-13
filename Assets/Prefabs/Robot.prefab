@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 6325621175010266320}
   m_Layer: 6
   m_Name: Robot
-  m_TagString: Untagged
+  m_TagString: Robot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,9 +206,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   directionX: 2
-  directionY: 1
-  distanceX: 1
-  distanceY: 0
+  directionY: 0
+  distanceX: 0
+  distanceY: 1
   initialDirection: {x: 0, y: 0, z: 0}
   vectorDirection: {x: 0, y: 0, z: 0}
   moveSpeed: 1
@@ -382,6 +382,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Line
       objectReference: {fileID: 0}
+    - target: {fileID: 5127888450583462820, guid: c43aed88b8e754c4ca8a7b0a362ab027, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5127888450583462822, guid: c43aed88b8e754c4ca8a7b0a362ab027, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -432,7 +436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5127888450583462823, guid: c43aed88b8e754c4ca8a7b0a362ab027, type: 3}
       propertyPath: m_Positions.Array.data[0].y
-      value: 0.5
+      value: 10.5
       objectReference: {fileID: 0}
     - target: {fileID: 5127888450583462823, guid: c43aed88b8e754c4ca8a7b0a362ab027, type: 3}
       propertyPath: m_Positions.Array.data[1].x
@@ -440,7 +444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5127888450583462823, guid: c43aed88b8e754c4ca8a7b0a362ab027, type: 3}
       propertyPath: m_Positions.Array.data[1].y
-      value: 0.5
+      value: 10.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c43aed88b8e754c4ca8a7b0a362ab027, type: 3}
