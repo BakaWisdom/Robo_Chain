@@ -5,15 +5,15 @@ using UnityEngine;
 [ExecuteInEditMode()]
 public class TetherRopeController : MonoBehaviour
 {
-    public Material spriteMaterial;
     public LayerMask layerMask;
-    public float tetherWidth = .2f;
+    public float tetherWidth = 1f;
     public Dictionary<string, List<Transform>> pointsDictionary = new Dictionary<string, List<Transform>>();
     public Dictionary<string, LineRenderer> linerenderers = new Dictionary<string, LineRenderer>();
 
     private bool isShootingRay = false;
 
     public LineRenderer drawingLine;
+    public GameObject tetherPrefab;
 
     private bool isDrawing = false;
 
@@ -23,7 +23,6 @@ public class TetherRopeController : MonoBehaviour
     void Start()
     {
         tetheredRobots = new Dictionary<string, RobotMovementController>();
-        drawingLine = GetComponent<LineRenderer>();
         drawingLine.SetPosition(0, transform.position);
         drawingLine.SetPosition(1, transform.position);
         drawingLine.startWidth = tetherWidth;
@@ -48,6 +47,10 @@ public class TetherRopeController : MonoBehaviour
                         if (lineRenderer)
                         {
                             lineRenderer.SetPosition(i, new Vector3(points[i].position.x, points[i].position.y, -2f));
+                            MeshCollider meshCollider = lineRenderer.gameObject.AddComponent<MeshCollider>();
+                            Mesh mesh = new Mesh();
+                            lineRenderer.BakeMesh(mesh, true);
+                            meshCollider.sharedMesh = mesh;
                         }
                     }
 
@@ -81,6 +84,11 @@ public class TetherRopeController : MonoBehaviour
         }
     }
 
+    public void DeleteTether(string name)
+    {
+        Debug.Log(name);
+    }
+
     private void resetDrawingLine()
     {
         isDrawing = false;
@@ -107,14 +115,11 @@ public class TetherRopeController : MonoBehaviour
         newPoints.Add(transform);
         newPoints.Add(target);
 
-        GameObject lineToSpawn = new GameObject("Line");
-        LineRenderer lineRenderer = lineToSpawn.AddComponent<LineRenderer>();
+        GameObject lineToSpawn = Instantiate(tetherPrefab);
+        lineToSpawn.name = target.name;
         lineToSpawn.transform.parent = transform;
-        lineRenderer.startColor = Color.red;
-        lineRenderer.startWidth = tetherWidth;
-        lineRenderer.sortingOrder = 2;
-        lineRenderer.material = spriteMaterial;
-        linerenderers.Add(target.name, lineRenderer);
+
+        linerenderers.Add(target.name, lineToSpawn.GetComponent<LineRenderer>());
         pointsDictionary.Add(target.name, newPoints);
 
         ApplyTethersToSelfAndTarget(target);
@@ -155,8 +160,6 @@ public class TetherRopeController : MonoBehaviour
         }
 
         robo.UpdateVector();
-
-        
     }
 
     public void StartDrawing()
