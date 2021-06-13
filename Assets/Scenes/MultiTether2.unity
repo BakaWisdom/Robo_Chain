@@ -5238,6 +5238,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5233015903441928233, guid: 3cbbedfc31c3c864cb9892d7f9346bee, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233015903441928233, guid: 3cbbedfc31c3c864cb9892d7f9346bee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 591efe8fba309d24fbb0a046ebdc4b8b, type: 3}
     - target: {fileID: 5233015904644769153, guid: 3cbbedfc31c3c864cb9892d7f9346bee, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -7588,8 +7596,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6725035231292223922, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
+      propertyPath: m_Positions.Array.data[0].x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6725035231292223922, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
       propertyPath: m_Positions.Array.data[0].y
       value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6725035231292223922, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
+      propertyPath: m_Positions.Array.data[1].x
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6725035231292223922, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
       propertyPath: m_Positions.Array.data[1].y

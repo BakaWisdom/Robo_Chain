@@ -8,4 +8,31 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Tether1.unity
+    guid: 53e5271bcd704fb45933ec2ef34fa88d
+  - enabled: 1
+    path: Assets/Scenes/Tether2.unity
+    guid: 2e8a14687fe1f974ab6b2bced6123333
+  - enabled: 1
+    path: Assets/Scenes/Tether3.unity
+    guid: d59039c15c4662844a01946c03ac46e4
+  - enabled: 1
+    path: Assets/Scenes/MultiTether1.unity
+    guid: bfd02c59646d5274492c2f332f13cb96
+  - enabled: 1
+    path: Assets/Scenes/MultiTether2.unity
+    guid: 4c3701c28443712469fe5a54012790aa
+  - enabled: 1
+    path: Assets/Scenes/Conveyor1.unity
+    guid: ecc04b237bde44f4983724bb8437af17
+  - enabled: 1
+    path: Assets/Scenes/Conveyor2.unity
+    guid: 9e692330c818e43418f47508433ede01
+  - enabled: 1
+    path: Assets/Scenes/Challenge1.unity
+    guid: b6b07e34e0920954c9785d116a196262
+  - enabled: 1
+    path: Assets/Scenes/Challenge2.unity
+    guid: f0af3b694a0d4364193f9ee5aa28a730
   m_configObjects: {}
