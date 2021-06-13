@@ -56,11 +56,8 @@ public class RobotMovementController : MonoBehaviour
         vectorDirection = new Vector3(initialDirection.x, initialDirection.y);
         foreach (RobotMovementController roboMovement in tetherController.tetheredRobots.Values)
         {
-            Debug.Log("INDIVIDUAL:" + transform.name + roboMovement.gameObject.name + roboMovement.initialDirection);
             vectorDirection += roboMovement.initialDirection;
         }
-
-        Debug.Log("TOTAL:" + transform.name + vectorDirection);
     }
 
     public void ActivateMovement()
