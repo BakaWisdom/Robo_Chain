@@ -190,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6725035231292223923, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6725035231292223923, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
       propertyPath: m_LocalPosition.x
@@ -234,7 +234,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6725035231292223933, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
       propertyPath: m_Name
-      value: Robot (1)
+      value: RobotTop
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
@@ -385,7 +385,7 @@ Transform:
   - {fileID: 2021314310}
   - {fileID: 1257275800}
   m_Father: {fileID: 1486254915}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &550750747
 GameObject:
@@ -2135,8 +2135,8 @@ Transform:
   - {fileID: 554734684}
   - {fileID: 1464467910}
   - {fileID: 1889346033}
-  - {fileID: 518552209}
   - {fileID: 1023831140}
+  - {fileID: 518552209}
   m_Father: {fileID: 454802729}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2815,6 +2815,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1486254915}
     m_Modifications:
+    - target: {fileID: 6725035231292223922, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
+      propertyPath: m_Positions.Array.data[0].x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6725035231292223922, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
+      propertyPath: m_Positions.Array.data[0].y
+      value: 9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6725035231292223922, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
+      propertyPath: m_Positions.Array.data[1].x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6725035231292223922, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
+      propertyPath: m_Positions.Array.data[1].y
+      value: 9.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6725035231292223923, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2861,7 +2877,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6725035231292223933, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
       propertyPath: m_Name
-      value: Robot
+      value: RobotLeft
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
