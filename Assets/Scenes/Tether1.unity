@@ -651,7 +651,7 @@ GameObject:
   - component: {fileID: 1321298491}
   - component: {fileID: 1321298490}
   - component: {fileID: 1321298492}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WallMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
