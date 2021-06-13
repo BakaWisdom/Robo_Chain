@@ -236,6 +236,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: RobotTop
       objectReference: {fileID: 0}
+    - target: {fileID: 8252062045773483084, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
+      propertyPath: m_Positions.Array.data[0].x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252062045773483084, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
+      propertyPath: m_Positions.Array.data[0].y
+      value: 11.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252062045773483084, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
+      propertyPath: m_Positions.Array.data[1].x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252062045773483084, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
+      propertyPath: m_Positions.Array.data[1].y
+      value: 11.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
 --- !u!1 &198118303
@@ -2020,8 +2036,56 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainUI
       objectReference: {fileID: 0}
+    - target: {fileID: 5741524407574579097, guid: 3cbbedfc31c3c864cb9892d7f9346bee, type: 3}
+      propertyPath: YouWon
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ec30744367eeb441a74475864af0003, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cbbedfc31c3c864cb9892d7f9346bee, type: 3}
+--- !u!114 &1336171259 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5741524407574579097, guid: 3cbbedfc31c3c864cb9892d7f9346bee, type: 3}
+  m_PrefabInstance: {fileID: 1336171258}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336171260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0a1f7134d648654e8c2320f98fd4d1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1336171260 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6809738157124594624, guid: 3cbbedfc31c3c864cb9892d7f9346bee, type: 3}
+  m_PrefabInstance: {fileID: 1336171258}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1336171261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336171260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee87994e9d653344dbbd806eaf82e4da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 550693f1884c19647b5dc823b0e5cb7d, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1336171259}
+        m_TargetAssemblyTypeName: GameHelper, Assembly-CSharp
+        m_MethodName: CakeCheck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1464467909
 GameObject:
   m_ObjectHideFlags: 0
@@ -2878,6 +2942,14 @@ PrefabInstance:
     - target: {fileID: 6725035231292223933, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
       propertyPath: m_Name
       value: RobotLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252062045773483084, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
+      propertyPath: m_Positions.Array.data[0].y
+      value: 9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252062045773483084, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
+      propertyPath: m_Positions.Array.data[1].y
+      value: 9.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}

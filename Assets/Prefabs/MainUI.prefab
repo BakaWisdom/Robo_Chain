@@ -892,6 +892,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5924816419993433822}
   - component: {fileID: 5741524407574579097}
+  - component: {fileID: 2169314320357438361}
   m_Layer: 0
   m_Name: GameHelper
   m_TagString: Untagged
@@ -927,6 +928,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActivateLevel: {fileID: 11400000, guid: 582232866e7f8044984bddaa2f62180b, type: 2}
   StopLevel: {fileID: 11400000, guid: b7ecbd3315539b441aad2317094006f4, type: 2}
+  YouWon: {fileID: 11400000, guid: 8ec30744367eeb441a74475864af0003, type: 2}
+--- !u!114 &2169314320357438361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6809738157124594624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee87994e9d653344dbbd806eaf82e4da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 550693f1884c19647b5dc823b0e5cb7d, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5741524407574579097}
+        m_TargetAssemblyTypeName: GameHelper, Assembly-CSharp
+        m_MethodName: CakeCheck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8519331065779751010
 GameObject:
   m_ObjectHideFlags: 0
