@@ -6,6 +6,7 @@ public class GameHelper : MonoBehaviour
 {
     public GameEvent ActivateLevel;
     public GameEvent StopLevel;
+    public GameEvent YouWon;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,23 @@ public class GameHelper : MonoBehaviour
                 Destroy(line);
             }
         }
+    }
+
+    public void CakeCheck()
+    {
+        GameObject[] robots = GameObject.FindGameObjectsWithTag("Robot");
+
+        foreach (GameObject robot in robots)
+        {
+            RoboWinLossState state = robot.GetComponent("RoboWinLossState") as RoboWinLossState;
+
+            if (!state.inCake)
+            {
+                return;
+            }
+        }
+
+        YouWon.Raise();
     }
 
     public void StartLevel()

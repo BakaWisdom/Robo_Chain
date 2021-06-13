@@ -21,6 +21,23 @@ public class RoboWinLossState : MonoBehaviour
         
     }
 
+    public void Celebrate()
+    {
+        //TODO activate dance animation
+    }
+
+    public void Lose()
+    {
+        if (hasTheDead)
+        {
+            //TODO activate death animation
+        }
+        else
+        {
+            //TODO sad animation
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "SpikePit")
