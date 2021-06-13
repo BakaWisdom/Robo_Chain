@@ -17,12 +17,12 @@ public class TetherRopeController : MonoBehaviour
 
     private bool isDrawing = false;
 
-    public List<RobotMovementController> tetheredRobots;
+    public Dictionary<string, RobotMovementController> tetheredRobots;
     public GameEvent lineCreated;
     // Start is called before the first frame update
     void Start()
     {
-        tetheredRobots = new List<RobotMovementController>();
+        tetheredRobots = new Dictionary<string, RobotMovementController>();
         drawingLine = GetComponent<LineRenderer>();
         drawingLine.SetPosition(0, transform.position);
         drawingLine.SetPosition(1, transform.position);
@@ -71,7 +71,6 @@ public class TetherRopeController : MonoBehaviour
             {
                 if(hit.transform.name != transform.name)
                 {
-                    hit.transform.gameObject.GetComponent<TetherRopeController>().CreateLine(transform);
                     CreateLine(hit.transform);
                 }
             }
@@ -84,6 +83,9 @@ public class TetherRopeController : MonoBehaviour
 
     private void resetDrawingLine()
     {
+        isDrawing = false;
+        isShootingRay = false;
+        drawingLine.SetPosition(0, transform.position);
         drawingLine.SetPosition(1, transform.position);
     }
 
@@ -99,8 +101,6 @@ public class TetherRopeController : MonoBehaviour
 
     public void CreateLine(Transform target)
     {
-        isShootingRay = false;
-        isDrawing = false;
         resetDrawingLine();
 
         List<Transform> newPoints = new List<Transform>();
@@ -109,18 +109,59 @@ public class TetherRopeController : MonoBehaviour
 
         GameObject lineToSpawn = new GameObject("Line");
         LineRenderer lineRenderer = lineToSpawn.AddComponent<LineRenderer>();
+        lineToSpawn.transform.parent = transform;
         lineRenderer.startColor = Color.red;
         lineRenderer.startWidth = tetherWidth;
         lineRenderer.sortingOrder = 2;
         lineRenderer.material = spriteMaterial;
-        linerenderers.Add("line1" + pointsDictionary.Keys.Count, lineRenderer);
-        pointsDictionary.Add("line1" + pointsDictionary.Keys.Count, newPoints);
-        tetheredRobots.Add(target.gameObject.GetComponent<RobotMovementController>());
-        gameObject.GetComponent<RobotMovementController>().UpdateVector();
+        linerenderers.Add(target.name, lineRenderer);
+        pointsDictionary.Add(target.name, newPoints);
+
+        ApplyTethersToSelfAndTarget(target);
+    }
+
+    public void ApplyTethersToSelfAndTarget(Transform target)
+    {
+        RobotMovementController robo = gameObject.GetComponent<RobotMovementController>();
+        Dictionary<string, RobotMovementController> roboCTRLS = target.gameObject.GetComponent<TetherRopeController>().tetheredRobots;
+
+        tetheredRobots.Add(target.name, target.gameObject.GetComponent<RobotMovementController>());
+        roboCTRLS.Add(transform.name, robo);
+
+        var result = new Dictionary<string, RobotMovementController>();
+
+        var dictionariesToCombine = new Dictionary<string, RobotMovementController>[] { roboCTRLS, tetheredRobots };
+
+        foreach (var dict in dictionariesToCombine)
+        {
+            foreach (var item in dict)
+            {
+                if (result.ContainsKey(item.Key)) result[item.Key] = item.Value; else result.Add(item.Key, item.Value);
+            }
+        }
+
+        tetheredRobots = new Dictionary<string, RobotMovementController>(result);
+        tetheredRobots.Remove(transform.name);
+
+        roboCTRLS = new Dictionary<string, RobotMovementController>(result);
+        roboCTRLS.Remove(target.name);
+
+
+        foreach (var item in tetheredRobots)
+        {
+            item.Value.gameObject.GetComponent<TetherRopeController>().tetheredRobots = new Dictionary<string, RobotMovementController>(result);
+            item.Value.gameObject.GetComponent<TetherRopeController>().tetheredRobots.Remove(item.Key);
+            item.Value.UpdateVector();
+        }
+
+        robo.UpdateVector();
+
+        
     }
 
     public void StartDrawing()
     {
+        drawingLine.SetPosition(0, transform.position);
         drawingLine.SetPosition(1, transform.position);
         isDrawing = true;
     }
