@@ -38,6 +38,5 @@ sysinfo.txt
 Logs/shadercompiler-UnityShaderCompiler.exe0.log
 *.log
 Logs/shadercompiler-UnityShaderCompiler.exe0.log
-*.meta
 Logs/shadercompiler-UnityShaderCompiler.exe0.log
 Assets/Scripts/Grid/GridGenerator.cs.meta

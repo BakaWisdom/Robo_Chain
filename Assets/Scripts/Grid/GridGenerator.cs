@@ -30,31 +30,33 @@ public class GridGenerator : MonoBehaviour
         {
             for (int j = 0; j < y; j++)
             {
-                gridPiecePrefab = decodePixel( ColorUtility.ToHtmlStringRGB(levelCode.GetPixel(i, j)) );
+                Debug.Log(ColorUtility.ToHtmlStringRGB(levelCode.GetPixel(i, j)));
+                gridPiecePrefab = decodePixel( ColorUtility.ToHtmlStringRGB(levelCode.GetPixel(i, j)).ToLower());
 
-                Instantiate(gridPiecePrefab, new Vector3(i + xOffset, j + yOffset, 0),
+                GameObject gridPiece = Instantiate(gridPiecePrefab, new Vector3(i + xOffset, j + yOffset, 0),
                     transform.rotation, this.transform);
+                gridPiece.name = gridPiecePrefab.name + i + j;
             }
         }
     }
 
-    private GameObject decodePixel(String color)
+    private GameObject decodePixel(string color)
     {
         switch (color)
         {
-            case ("#ffffff"):
+            case ("ffffff"):
                 return emptyPrefab;
-            case ("#ccce4b"):
+            case ("aaaa9a"):
                 return robotPrefab;
-            case ("#ce953b"):
+            case ("ce953b"):
                 return endpointPrefab;
-            case ("#81df86"):
+            case ("81df86"):
                 return conveyorSpeed1Prefab;
-            case ("#535aa9"):
+            case ("535aa9"):
                 return conveyorSpeed2Prefab;
-            case ("#bb3232"):
+            case ("bb3232"):
                 return spikePrefab;
-            case ("#000000"):
+            case ("000000"):
             default:
                 return wallPrefab;
         }
