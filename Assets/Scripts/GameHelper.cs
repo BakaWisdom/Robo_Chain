@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameHelper : MonoBehaviour
 {
@@ -46,6 +47,16 @@ public class GameHelper : MonoBehaviour
         }
 
         YouWon.Raise();
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void BackToMain()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void StartLevel()
