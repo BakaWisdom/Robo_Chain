@@ -484,6 +484,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: RobotTop
       objectReference: {fileID: 0}
+    - target: {fileID: 8252062045773483084, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
+      propertyPath: m_Positions.Array.data[0].x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252062045773483084, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
+      propertyPath: m_Positions.Array.data[1].x
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
 --- !u!1 &198118303
@@ -4295,6 +4303,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1486254915}
     m_Modifications:
+    - target: {fileID: 1381450920, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
+      propertyPath: distanceX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1381450920, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
+      propertyPath: distanceY
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6725035231292223922, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
       propertyPath: m_Positions.Array.data[0].x
       value: 0.5
@@ -4358,6 +4374,14 @@ PrefabInstance:
     - target: {fileID: 6725035231292223933, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
       propertyPath: m_Name
       value: RobotLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252062045773483084, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
+      propertyPath: m_Positions.Array.data[0].y
+      value: 9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252062045773483084, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
+      propertyPath: m_Positions.Array.data[1].y
+      value: 9.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6874c2dd1b3a7d84aa1923674dc340db, type: 3}
