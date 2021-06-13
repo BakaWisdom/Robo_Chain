@@ -6,6 +6,8 @@ TagManager:
   tags:
   - SpikePit
   - Cake
+  - Robot
+  - Tether
   layers:
   - Default
   - TransparentFX
@@ -15,7 +17,7 @@ TagManager:
   - UI
   - Robots
   - Walls
-  - 
+  - Lines
   - 
   - 
   - 

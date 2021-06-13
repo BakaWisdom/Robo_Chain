@@ -30,7 +30,6 @@ public class GridGenerator : MonoBehaviour
         {
             for (int j = 0; j < y; j++)
             {
-                Debug.Log(ColorUtility.ToHtmlStringRGB(levelCode.GetPixel(i, j)));
                 gridPiecePrefab = decodePixel( ColorUtility.ToHtmlStringRGB(levelCode.GetPixel(i, j)).ToLower());
 
                 GameObject gridPiece = Instantiate(gridPiecePrefab, new Vector3(i + xOffset, j + yOffset, 0),
