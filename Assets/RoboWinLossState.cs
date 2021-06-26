@@ -48,7 +48,6 @@ public class RoboWinLossState : MonoBehaviour
 
         if (collision.tag == "Cake")
         {
-            Debug.Log("Collided");
             inCake = true;
             winCheck.Raise();
         }
